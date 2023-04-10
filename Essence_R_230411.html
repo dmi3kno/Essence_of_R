@@ -7,7 +7,7 @@
 <link href="Essence_R_230411_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Essence_R_230411_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Essence_R_230411_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-99.9.9">
 
   <meta name="author" content="Linda Hartman">
   <title>The Essence of R</title>
@@ -20,7 +20,7 @@
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.column{flex: 1;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -382,29 +382,26 @@
       margin-right: 0; 
     }
   </style>
+  
+  <script src="Essence_R_230411_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="Essence_R_230411_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="img/Universitetshusetvt201019.jpg" data-background-opacity="0.3" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" data-background-image="img/Universitetshusetvt201019.jpg" data-background-opacity="0.3" data-background-size="contain" class="center">
   <h1 class="title">The Essence of R</h1>
   <p class="subtitle">LU eScience Hub: Programming language day</p>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Linda Hartman 
-</div>
-        <p class="quarto-title-affiliation">
-            Lund University
-          </p>
-    </div>
-</div>
-
+  <p class="author">Linda Hartman</p>
+  <p class="institute">Lund University</p>
 </section>
+
 <section id="section" class="slide level2" data-background-image="img/Rlogo.png" data-background-size="80px" data-background-position="top 10px right 10px">
 <h2></h2>
+<div class="cell">
+
+</div>
 <div style="font-size: 1.5em; text-align: left">
 <p>R</p>
 </div>
@@ -415,7 +412,7 @@ Linda Hartman
 <li class="fragment"><p>Simplified workflow with Rstudio (IDE)</p></li>
 <li class="fragment"><p>Very active community for development and support</p></li>
 </ul>
-<p><img data-src="img/Rstudio.png" class="fragment absolute" style="bottom: 0px; right: 0px; width: 200px; height: 200px; "></p>
+<p><img data-src="img/RStudio.png" class="fragment absolute" style="bottom: 100px; right: 0px; height: 180px; "></p>
 </section>
 <section id="section-1" class="slide level2" data-background-image="img/E-P5vPtXEA0MBYS.jpeg" data-background-size="contain">
 <h2></h2>
@@ -449,481 +446,221 @@ Linda Hartman
 </ul>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">data</span>(<span class="st">"penguins"</span>, <span class="at">package =</span> <span class="st">"palmerpenguins"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">glimpse</span>(penguins) <span class="co">#Quick overview</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>penguins <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">glimpse</span>(penguins) <span class="co">#Quick overview</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 344
 Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Ad…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39…
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19…
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 46…
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, fe…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, …</code></pre>
 </div>
 </div>
-</section>
-<section id="cleanup-the-data" class="slide level2">
-<h2>Cleanup the data</h2>
-<p>If you noticed above, there was some NA or missing data. We can remove those rows for now.</p>
+<div>
+<ul>
+<li>If you noticed above, there was some NA or missing data. We can remove those rows for now.</li>
+</ul>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>penguins_org <span class="ot">&lt;-</span> penguins</span>
-<span id="cb4-2"><a href="#cb4-2"></a>penguins <span class="ot">&lt;-</span> penguins_org <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">mutate</span>(<span class="at">species_num =</span> <span class="fu">as.numeric</span>(species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="descriptive-statistics" class="slide level2">
 <h2>Descriptive statistics</h2>
+<div style="font-size: 30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="at">mean_weight =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="at">sd_weight =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="at">mean_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="at">sd_flipper_length =</span> <span class="fu">sd</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_weight)) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> gt<span class="sc">::</span><span class="fu">gt</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
-<div id="cbbipfrxxk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#cbbipfrxxk) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#cbbipfrxxk) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#cbbipfrxxk) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#cbbipfrxxk) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#cbbipfrxxk) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#cbbipfrxxk) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#cbbipfrxxk) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#cbbipfrxxk) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#cbbipfrxxk) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#cbbipfrxxk) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#cbbipfrxxk) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#cbbipfrxxk) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#cbbipfrxxk) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#cbbipfrxxk) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#cbbipfrxxk) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#cbbipfrxxk) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#cbbipfrxxk) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#cbbipfrxxk) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cbbipfrxxk) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_left {
-  text-align: left;
-}
-
-:where(#cbbipfrxxk) .gt_center {
-  text-align: center;
-}
-
-:where(#cbbipfrxxk) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#cbbipfrxxk) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#cbbipfrxxk) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#cbbipfrxxk) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#cbbipfrxxk) .gt_super {
-  font-size: 65%;
-}
-
-:where(#cbbipfrxxk) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#cbbipfrxxk) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#cbbipfrxxk) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#cbbipfrxxk) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#cbbipfrxxk) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#cbbipfrxxk) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#cbbipfrxxk) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean_weight">mean_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="sd_weight">sd_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean_flipper_length">mean_flipper_length</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="sd_flipper_length">sd_flipper_length</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="n" class="gt_row gt_right">333</td>
-<td headers="mean_weight" class="gt_row gt_right">4207.1</td>
-<td headers="sd_weight" class="gt_row gt_right">805.2</td>
-<td headers="mean_flipper_length" class="gt_row gt_right">201</td>
-<td headers="sd_flipper_length" class="gt_row gt_right">14</td></tr>
-  </tbody>
-  
-  
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">penguins</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">species</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Ade: 146, Gen: 119, Chi: 68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">island</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Bis: 163, Dre: 123, Tor: 47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sex</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">mal: 168, fem: 165</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bill_length_mm</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">43.99</td>
+<td style="text-align: right;">5.47</td>
+<td style="text-align: right;">32.1</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">48.6</td>
+<td style="text-align: right;">59.6</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bill_depth_mm</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">17.16</td>
+<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">13.1</td>
+<td style="text-align: right;">15.6</td>
+<td style="text-align: right;">17.3</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: left;">▅▆▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">flipper_length_mm</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">200.97</td>
+<td style="text-align: right;">14.02</td>
+<td style="text-align: right;">172.0</td>
+<td style="text-align: right;">190.0</td>
+<td style="text-align: right;">197.0</td>
+<td style="text-align: right;">213.0</td>
+<td style="text-align: right;">231.0</td>
+<td style="text-align: left;">▂▇▃▅▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">body_mass_g</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4207.06</td>
+<td style="text-align: right;">805.22</td>
+<td style="text-align: right;">2700.0</td>
+<td style="text-align: right;">3550.0</td>
+<td style="text-align: right;">4050.0</td>
+<td style="text-align: right;">4775.0</td>
+<td style="text-align: right;">6300.0</td>
+<td style="text-align: left;">▃▇▅▃▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2008.04</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">2007.0</td>
+<td style="text-align: right;">2007.0</td>
+<td style="text-align: right;">2008.0</td>
+<td style="text-align: right;">2009.0</td>
+<td style="text-align: right;">2009.0</td>
+<td style="text-align: left;">▇▁▇▁▇</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -931,478 +668,398 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </section>
 <section id="descriptive-statistics-by-group" class="slide level2">
 <h2>Descriptive statistics by group</h2>
+<div style="font-size: 30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="at">weight =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(weight)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>(<span class="sc">-</span>year) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  skimr<span class="sc">::</span><span class="fu">yank</span>(<span class="st">"numeric"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>  kableExtra<span class="sc">::</span><span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6"></a>  kableExtra<span class="sc">::</span><span class="fu">collapse_rows</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="sptfcduewa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#sptfcduewa) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#sptfcduewa) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#sptfcduewa) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#sptfcduewa) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#sptfcduewa) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#sptfcduewa) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#sptfcduewa) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#sptfcduewa) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#sptfcduewa) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#sptfcduewa) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#sptfcduewa) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#sptfcduewa) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#sptfcduewa) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#sptfcduewa) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#sptfcduewa) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#sptfcduewa) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#sptfcduewa) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#sptfcduewa) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#sptfcduewa) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#sptfcduewa) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#sptfcduewa) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#sptfcduewa) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#sptfcduewa) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#sptfcduewa) .gt_left {
-  text-align: left;
-}
-
-:where(#sptfcduewa) .gt_center {
-  text-align: center;
-}
-
-:where(#sptfcduewa) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#sptfcduewa) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#sptfcduewa) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#sptfcduewa) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#sptfcduewa) .gt_super {
-  font-size: 65%;
-}
-
-:where(#sptfcduewa) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#sptfcduewa) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#sptfcduewa) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#sptfcduewa) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#sptfcduewa) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#sptfcduewa) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#sptfcduewa) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="sex">sex</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="weight">weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="flipper_length">flipper_length</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr class="gt_group_heading_row">
-      <th colspan="4" class="gt_group_heading" scope="colgroup" id="Gentoo">Gentoo</th>
-    </tr>
-    <tr class="gt_row_group_first"><td headers="Gentoo  sex" class="gt_row gt_center">male</td>
-<td headers="Gentoo  n" class="gt_row gt_right">61</td>
-<td headers="Gentoo  weight" class="gt_row gt_right">5485</td>
-<td headers="Gentoo  flipper_length" class="gt_row gt_right">222</td></tr>
-    <tr><td headers="Gentoo  sex" class="gt_row gt_center">female</td>
-<td headers="Gentoo  n" class="gt_row gt_right">58</td>
-<td headers="Gentoo  weight" class="gt_row gt_right">4680</td>
-<td headers="Gentoo  flipper_length" class="gt_row gt_right">213</td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="4" class="gt_group_heading" scope="colgroup" id="Adelie">Adelie</th>
-    </tr>
-    <tr class="gt_row_group_first"><td headers="Adelie  sex" class="gt_row gt_center">male</td>
-<td headers="Adelie  n" class="gt_row gt_right">73</td>
-<td headers="Adelie  weight" class="gt_row gt_right">4043</td>
-<td headers="Adelie  flipper_length" class="gt_row gt_right">192</td></tr>
-    <tr><td headers="Adelie  sex" class="gt_row gt_center">female</td>
-<td headers="Adelie  n" class="gt_row gt_right">73</td>
-<td headers="Adelie  weight" class="gt_row gt_right">3369</td>
-<td headers="Adelie  flipper_length" class="gt_row gt_right">188</td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="4" class="gt_group_heading" scope="colgroup" id="Chinstrap">Chinstrap</th>
-    </tr>
-    <tr class="gt_row_group_first"><td headers="Chinstrap  sex" class="gt_row gt_center">male</td>
-<td headers="Chinstrap  n" class="gt_row gt_right">34</td>
-<td headers="Chinstrap  weight" class="gt_row gt_right">3939</td>
-<td headers="Chinstrap  flipper_length" class="gt_row gt_right">200</td></tr>
-    <tr><td headers="Chinstrap  sex" class="gt_row gt_center">female</td>
-<td headers="Chinstrap  n" class="gt_row gt_right">34</td>
-<td headers="Chinstrap  weight" class="gt_row gt_right">3527</td>
-<td headers="Chinstrap  flipper_length" class="gt_row gt_right">192</td></tr>
-  </tbody>
-  
-  
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> skim_variable </th>
+   <th style="text-align:left;"> species </th>
+   <th style="text-align:left;"> sex </th>
+   <th style="text-align:right;"> n_missing </th>
+   <th style="text-align:right;"> complete_rate </th>
+   <th style="text-align:right;"> mean </th>
+   <th style="text-align:right;"> sd </th>
+   <th style="text-align:right;"> p0 </th>
+   <th style="text-align:right;"> p25 </th>
+   <th style="text-align:right;"> p50 </th>
+   <th style="text-align:right;"> p75 </th>
+   <th style="text-align:right;"> p100 </th>
+   <th style="text-align:left;"> hist </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="6"> bill_length_mm </td>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Adelie </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 37.25753 </td>
+   <td style="text-align:right;"> 2.0288830 </td>
+   <td style="text-align:right;"> 32.1 </td>
+   <td style="text-align:right;"> 35.900 </td>
+   <td style="text-align:right;"> 37.00 </td>
+   <td style="text-align:right;"> 38.800 </td>
+   <td style="text-align:right;"> 42.2 </td>
+   <td style="text-align:left;"> ▁▆▇▅▂ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 40.39041 </td>
+   <td style="text-align:right;"> 2.2771305 </td>
+   <td style="text-align:right;"> 34.6 </td>
+   <td style="text-align:right;"> 39.000 </td>
+   <td style="text-align:right;"> 40.60 </td>
+   <td style="text-align:right;"> 41.500 </td>
+   <td style="text-align:right;"> 46.0 </td>
+   <td style="text-align:left;"> ▁▅▇▃▁ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Chinstrap </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 46.57353 </td>
+   <td style="text-align:right;"> 3.1086691 </td>
+   <td style="text-align:right;"> 40.9 </td>
+   <td style="text-align:right;"> 45.425 </td>
+   <td style="text-align:right;"> 46.30 </td>
+   <td style="text-align:right;"> 47.375 </td>
+   <td style="text-align:right;"> 58.0 </td>
+   <td style="text-align:left;"> ▂▇▂▁▁ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 51.09412 </td>
+   <td style="text-align:right;"> 1.5645584 </td>
+   <td style="text-align:right;"> 48.5 </td>
+   <td style="text-align:right;"> 50.050 </td>
+   <td style="text-align:right;"> 50.95 </td>
+   <td style="text-align:right;"> 51.975 </td>
+   <td style="text-align:right;"> 55.8 </td>
+   <td style="text-align:left;"> ▅▇▅▁▁ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Gentoo </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 45.56379 </td>
+   <td style="text-align:right;"> 2.0512468 </td>
+   <td style="text-align:right;"> 40.9 </td>
+   <td style="text-align:right;"> 43.850 </td>
+   <td style="text-align:right;"> 45.50 </td>
+   <td style="text-align:right;"> 46.875 </td>
+   <td style="text-align:right;"> 50.5 </td>
+   <td style="text-align:left;"> ▂▃▇▃▁ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 49.47377 </td>
+   <td style="text-align:right;"> 2.7205944 </td>
+   <td style="text-align:right;"> 44.4 </td>
+   <td style="text-align:right;"> 48.100 </td>
+   <td style="text-align:right;"> 49.50 </td>
+   <td style="text-align:right;"> 50.500 </td>
+   <td style="text-align:right;"> 59.6 </td>
+   <td style="text-align:left;"> ▃▇▃▁▁ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="6"> bill_depth_mm </td>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Adelie </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 17.62192 </td>
+   <td style="text-align:right;"> 0.9429927 </td>
+   <td style="text-align:right;"> 15.5 </td>
+   <td style="text-align:right;"> 17.000 </td>
+   <td style="text-align:right;"> 17.60 </td>
+   <td style="text-align:right;"> 18.300 </td>
+   <td style="text-align:right;"> 20.7 </td>
+   <td style="text-align:left;"> ▂▇▇▂▁ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19.07260 </td>
+   <td style="text-align:right;"> 1.0188856 </td>
+   <td style="text-align:right;"> 17.0 </td>
+   <td style="text-align:right;"> 18.500 </td>
+   <td style="text-align:right;"> 18.90 </td>
+   <td style="text-align:right;"> 19.600 </td>
+   <td style="text-align:right;"> 21.5 </td>
+   <td style="text-align:left;"> ▂▇▇▃▂ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Chinstrap </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 17.58824 </td>
+   <td style="text-align:right;"> 0.7811277 </td>
+   <td style="text-align:right;"> 16.4 </td>
+   <td style="text-align:right;"> 17.000 </td>
+   <td style="text-align:right;"> 17.65 </td>
+   <td style="text-align:right;"> 18.050 </td>
+   <td style="text-align:right;"> 19.4 </td>
+   <td style="text-align:left;"> ▇▆▇▃▂ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19.25294 </td>
+   <td style="text-align:right;"> 0.7612730 </td>
+   <td style="text-align:right;"> 17.5 </td>
+   <td style="text-align:right;"> 18.800 </td>
+   <td style="text-align:right;"> 19.30 </td>
+   <td style="text-align:right;"> 19.800 </td>
+   <td style="text-align:right;"> 20.8 </td>
+   <td style="text-align:left;"> ▁▆▅▇▂ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Gentoo </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.23793 </td>
+   <td style="text-align:right;"> 0.5402493 </td>
+   <td style="text-align:right;"> 13.1 </td>
+   <td style="text-align:right;"> 13.800 </td>
+   <td style="text-align:right;"> 14.25 </td>
+   <td style="text-align:right;"> 14.600 </td>
+   <td style="text-align:right;"> 15.5 </td>
+   <td style="text-align:left;"> ▂▆▇▅▁ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15.71803 </td>
+   <td style="text-align:right;"> 0.7410596 </td>
+   <td style="text-align:right;"> 14.1 </td>
+   <td style="text-align:right;"> 15.200 </td>
+   <td style="text-align:right;"> 15.70 </td>
+   <td style="text-align:right;"> 16.100 </td>
+   <td style="text-align:right;"> 17.3 </td>
+   <td style="text-align:left;"> ▂▆▇▅▂ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="6"> flipper_length_mm </td>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Adelie </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 187.79452 </td>
+   <td style="text-align:right;"> 5.5950348 </td>
+   <td style="text-align:right;"> 172.0 </td>
+   <td style="text-align:right;"> 185.000 </td>
+   <td style="text-align:right;"> 188.00 </td>
+   <td style="text-align:right;"> 191.000 </td>
+   <td style="text-align:right;"> 202.0 </td>
+   <td style="text-align:left;"> ▁▂▇▅▁ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 192.41096 </td>
+   <td style="text-align:right;"> 6.5993173 </td>
+   <td style="text-align:right;"> 178.0 </td>
+   <td style="text-align:right;"> 189.000 </td>
+   <td style="text-align:right;"> 193.00 </td>
+   <td style="text-align:right;"> 197.000 </td>
+   <td style="text-align:right;"> 210.0 </td>
+   <td style="text-align:left;"> ▃▅▇▃▁ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Chinstrap </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 191.73529 </td>
+   <td style="text-align:right;"> 5.7540964 </td>
+   <td style="text-align:right;"> 178.0 </td>
+   <td style="text-align:right;"> 187.250 </td>
+   <td style="text-align:right;"> 192.00 </td>
+   <td style="text-align:right;"> 195.750 </td>
+   <td style="text-align:right;"> 202.0 </td>
+   <td style="text-align:left;"> ▂▅▇▇▆ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 199.91176 </td>
+   <td style="text-align:right;"> 5.9765585 </td>
+   <td style="text-align:right;"> 187.0 </td>
+   <td style="text-align:right;"> 196.000 </td>
+   <td style="text-align:right;"> 200.50 </td>
+   <td style="text-align:right;"> 203.000 </td>
+   <td style="text-align:right;"> 212.0 </td>
+   <td style="text-align:left;"> ▁▇▅▅▂ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Gentoo </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 212.70690 </td>
+   <td style="text-align:right;"> 3.8978565 </td>
+   <td style="text-align:right;"> 203.0 </td>
+   <td style="text-align:right;"> 210.000 </td>
+   <td style="text-align:right;"> 212.00 </td>
+   <td style="text-align:right;"> 215.000 </td>
+   <td style="text-align:right;"> 222.0 </td>
+   <td style="text-align:left;"> ▁▇▆▅▂ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 221.54098 </td>
+   <td style="text-align:right;"> 5.6732524 </td>
+   <td style="text-align:right;"> 208.0 </td>
+   <td style="text-align:right;"> 218.000 </td>
+   <td style="text-align:right;"> 221.00 </td>
+   <td style="text-align:right;"> 225.000 </td>
+   <td style="text-align:right;"> 231.0 </td>
+   <td style="text-align:left;"> ▁▆▇▇▆ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="6"> body_mass_g </td>
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Adelie </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3368.83562 </td>
+   <td style="text-align:right;"> 269.3801018 </td>
+   <td style="text-align:right;"> 2850.0 </td>
+   <td style="text-align:right;"> 3175.000 </td>
+   <td style="text-align:right;"> 3400.00 </td>
+   <td style="text-align:right;"> 3550.000 </td>
+   <td style="text-align:right;"> 3900.0 </td>
+   <td style="text-align:left;"> ▅▅▇▅▅ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4043.49315 </td>
+   <td style="text-align:right;"> 346.8115532 </td>
+   <td style="text-align:right;"> 3325.0 </td>
+   <td style="text-align:right;"> 3800.000 </td>
+   <td style="text-align:right;"> 4000.00 </td>
+   <td style="text-align:right;"> 4300.000 </td>
+   <td style="text-align:right;"> 4775.0 </td>
+   <td style="text-align:left;"> ▃▇▇▇▃ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Chinstrap </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3527.20588 </td>
+   <td style="text-align:right;"> 285.3339117 </td>
+   <td style="text-align:right;"> 2700.0 </td>
+   <td style="text-align:right;"> 3362.500 </td>
+   <td style="text-align:right;"> 3550.00 </td>
+   <td style="text-align:right;"> 3693.750 </td>
+   <td style="text-align:right;"> 4150.0 </td>
+   <td style="text-align:left;"> ▁▂▇▇▂ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3938.97059 </td>
+   <td style="text-align:right;"> 362.1375501 </td>
+   <td style="text-align:right;"> 3250.0 </td>
+   <td style="text-align:right;"> 3731.250 </td>
+   <td style="text-align:right;"> 3950.00 </td>
+   <td style="text-align:right;"> 4100.000 </td>
+   <td style="text-align:right;"> 4800.0 </td>
+   <td style="text-align:left;"> ▃▇▇▂▂ </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;vertical-align: middle !important;" rowspan="2"> Gentoo </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4679.74138 </td>
+   <td style="text-align:right;"> 281.5782936 </td>
+   <td style="text-align:right;"> 3950.0 </td>
+   <td style="text-align:right;"> 4462.500 </td>
+   <td style="text-align:right;"> 4700.00 </td>
+   <td style="text-align:right;"> 4875.000 </td>
+   <td style="text-align:right;"> 5200.0 </td>
+   <td style="text-align:left;"> ▂▅▇▇▃ </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5484.83607 </td>
+   <td style="text-align:right;"> 313.1585956 </td>
+   <td style="text-align:right;"> 4750.0 </td>
+   <td style="text-align:right;"> 5300.000 </td>
+   <td style="text-align:right;"> 5500.00 </td>
+   <td style="text-align:right;"> 5700.000 </td>
+   <td style="text-align:right;"> 6300.0 </td>
+   <td style="text-align:left;"> ▂▆▇▅▂ </td>
+  </tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1412,31 +1069,43 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <h1>Graphics</h1>
 
 </section>
-<section id="graphics-distribution" class="slide level2">
-<h2>Graphics: Distribution</h2>
-<div class="cell" data-fig.dim="[8,4]" data-figh-height="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g, <span class="at">fill =</span> species)) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Bins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="graphics-distributions" class="slide level2">
+<h2>Graphics: Distributions</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g, <span class="at">fill =</span> species)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Bins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="Essence_R_230411_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:50.0%" class="r-stretch"></section>
-<section id="graphics-scatter-plot-with-linear-model" class="slide level2">
-<h2>Graphics: Scatter Plot with linear model</h2>
-<div class="cell" data-fig.dim="[8,4]">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>penguin_size_plot <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Mass (g)"</span>, <span class="at">y =</span> <span class="st">"Flipper Length (mm)"</span>) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="st">"none"</span>), <span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a>penguin_size_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="Essence_R_230411_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="graphics-eda" class="slide level2">
+<h2>Graphics: EDA</h2>
+<p>Exploratory Data Analysis as a first step towards developing a sensible model. But if we control for species quite different picture appear</p>
+</section>
+<section id="section-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span> </span>
+<span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb7-4" class="hljs-ln-code"><a href="#cb7-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)<span class="sc">+</span></span>
+<span id="cb7-5" class="hljs-ln-code"><a href="#cb7-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bill length (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="Essence_R_230411_files/figure-revealjs/unnamed-chunk-8-1.png" class="r-stretch"></section></section>
+<img data-src="Essence_R_230411_files/figure-revealjs/fig-simpsons-1-1.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure 1: Bill length vs depth</p></section>
+<section id="section-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="#cb8-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2" class="hljs-ln-code"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm, <span class="at">color=</span>species)) <span class="sc">+</span> </span>
+<span id="cb8-3" class="hljs-ln-code"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb8-4" class="hljs-ln-code"><a href="#cb8-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)<span class="sc">+</span></span>
+<span id="cb8-5" class="hljs-ln-code"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bill length (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Essence_R_230411_files/figure-revealjs/fig-simpsons-2-1.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure 2: Bill length vs depth by species</p></section></section>
 <section>
 <section id="statistical-models" class="title-slide slide level1 center">
 <h1>Statistical models</h1>
@@ -1458,13 +1127,13 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <h2>Modeling section</h2>
 <p>Efficient to explore multiple relationships in data simultaneously. Just to indicate how you can fit some different models all at once with <code>dplyr</code> + <code>broom</code>.</p>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>model_inputs <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">model_form =</span> <span class="fu">c</span>(</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">list</span>(flipper_length_mm <span class="sc">~</span> body_mass_g),</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="fu">list</span>(species_num <span class="sc">~</span> bill_length_mm <span class="sc">+</span> body_mass_g <span class="sc">+</span> sex),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="fu">list</span>(species <span class="sc">~</span> bill_length_mm <span class="sc">+</span> body_mass_g <span class="sc">+</span> sex),</span>
 <span id="cb9-5"><a href="#cb9-5"></a>    <span class="fu">list</span>(flipper_length_mm <span class="sc">~</span> bill_length_mm <span class="sc">+</span> species)</span>
 <span id="cb9-6"><a href="#cb9-6"></a>    ),</span>
 <span id="cb9-7"><a href="#cb9-7"></a>  <span class="at">data =</span> <span class="fu">list</span>(penguins)</span>
@@ -1477,7 +1146,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb9-14"><a href="#cb9-14"></a>  <span class="fu">summarise</span>(broom<span class="sc">::</span><span class="fu">glance</span>(lm), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>model_metrics <span class="sc">%&gt;%</span> </span>
@@ -1491,12 +1160,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb10-9"><a href="#cb10-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="rnwcxktwqx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xxicgzyiuv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#rnwcxktwqx .gt_table {
+#xxicgzyiuv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1521,7 +1190,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-left-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_heading {
+#xxicgzyiuv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1533,12 +1202,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-right-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_caption {
+#xxicgzyiuv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rnwcxktwqx .gt_title {
+#xxicgzyiuv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1550,7 +1219,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-bottom-width: 0;
 }
 
-#rnwcxktwqx .gt_subtitle {
+#xxicgzyiuv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1562,13 +1231,13 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-top-width: 0;
 }
 
-#rnwcxktwqx .gt_bottom_border {
+#xxicgzyiuv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_col_headings {
+#xxicgzyiuv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1583,7 +1252,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-right-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_col_heading {
+#xxicgzyiuv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1603,7 +1272,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   overflow-x: hidden;
 }
 
-#rnwcxktwqx .gt_column_spanner_outer {
+#xxicgzyiuv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1615,15 +1284,15 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 4px;
 }
 
-#rnwcxktwqx .gt_column_spanner_outer:first-child {
+#xxicgzyiuv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rnwcxktwqx .gt_column_spanner_outer:last-child {
+#xxicgzyiuv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rnwcxktwqx .gt_column_spanner {
+#xxicgzyiuv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1635,7 +1304,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   width: 100%;
 }
 
-#rnwcxktwqx .gt_group_heading {
+#xxicgzyiuv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1661,7 +1330,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   text-align: left;
 }
 
-#rnwcxktwqx .gt_empty_group_heading {
+#xxicgzyiuv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1676,15 +1345,15 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   vertical-align: middle;
 }
 
-#rnwcxktwqx .gt_from_md > :first-child {
+#xxicgzyiuv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rnwcxktwqx .gt_from_md > :last-child {
+#xxicgzyiuv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rnwcxktwqx .gt_row {
+#xxicgzyiuv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1703,7 +1372,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   overflow-x: hidden;
 }
 
-#rnwcxktwqx .gt_stub {
+#xxicgzyiuv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1716,7 +1385,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 5px;
 }
 
-#rnwcxktwqx .gt_stub_row_group {
+#xxicgzyiuv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1730,11 +1399,11 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   vertical-align: top;
 }
 
-#rnwcxktwqx .gt_row_group_first td {
+#xxicgzyiuv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rnwcxktwqx .gt_summary_row {
+#xxicgzyiuv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1744,16 +1413,16 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 5px;
 }
 
-#rnwcxktwqx .gt_first_summary_row {
+#xxicgzyiuv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_first_summary_row.thick {
+#xxicgzyiuv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rnwcxktwqx .gt_last_summary_row {
+#xxicgzyiuv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1763,7 +1432,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-bottom-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_grand_summary_row {
+#xxicgzyiuv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1773,7 +1442,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 5px;
 }
 
-#rnwcxktwqx .gt_first_grand_summary_row {
+#xxicgzyiuv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1783,11 +1452,11 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-top-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_striped {
+#xxicgzyiuv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rnwcxktwqx .gt_table_body {
+#xxicgzyiuv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1796,7 +1465,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-bottom-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_footnotes {
+#xxicgzyiuv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1810,7 +1479,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-right-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_footnote {
+#xxicgzyiuv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1819,7 +1488,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 5px;
 }
 
-#rnwcxktwqx .gt_sourcenotes {
+#xxicgzyiuv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1833,7 +1502,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   border-right-color: #D3D3D3;
 }
 
-#rnwcxktwqx .gt_sourcenote {
+#xxicgzyiuv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1841,64 +1510,64 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
   padding-right: 5px;
 }
 
-#rnwcxktwqx .gt_left {
+#xxicgzyiuv .gt_left {
   text-align: left;
 }
 
-#rnwcxktwqx .gt_center {
+#xxicgzyiuv .gt_center {
   text-align: center;
 }
 
-#rnwcxktwqx .gt_right {
+#xxicgzyiuv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rnwcxktwqx .gt_font_normal {
+#xxicgzyiuv .gt_font_normal {
   font-weight: normal;
 }
 
-#rnwcxktwqx .gt_font_bold {
+#xxicgzyiuv .gt_font_bold {
   font-weight: bold;
 }
 
-#rnwcxktwqx .gt_font_italic {
+#xxicgzyiuv .gt_font_italic {
   font-style: italic;
 }
 
-#rnwcxktwqx .gt_super {
+#xxicgzyiuv .gt_super {
   font-size: 65%;
 }
 
-#rnwcxktwqx .gt_footnote_marks {
+#xxicgzyiuv .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#rnwcxktwqx .gt_asterisk {
+#xxicgzyiuv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rnwcxktwqx .gt_indent_1 {
+#xxicgzyiuv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rnwcxktwqx .gt_indent_2 {
+#xxicgzyiuv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rnwcxktwqx .gt_indent_3 {
+#xxicgzyiuv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rnwcxktwqx .gt_indent_4 {
+#xxicgzyiuv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rnwcxktwqx .gt_indent_5 {
+#xxicgzyiuv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1929,12 +1598,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <td headers="sigma" class="gt_row gt_right">6.85</td>
 <td headers="statistic" class="gt_row gt_right">1,060.30</td>
 <td headers="p.value" class="gt_row gt_right">3.13 × 10<sup style="font-size: 65%;">−105</sup></td></tr>
-    <tr><td headers="model_form" class="gt_row gt_left">species_num ~ bill_length_mm + body_mass_g + sex</td>
-<td headers="r.squared" class="gt_row gt_right">0.84</td>
-<td headers="adj.r.squared" class="gt_row gt_right">0.84</td>
-<td headers="sigma" class="gt_row gt_right">0.36</td>
-<td headers="statistic" class="gt_row gt_right">583.59</td>
-<td headers="p.value" class="gt_row gt_right">2.45 × 10<sup style="font-size: 65%;">−131</sup></td></tr>
+    <tr><td headers="model_form" class="gt_row gt_left">species ~ bill_length_mm + body_mass_g + sex</td>
+<td headers="r.squared" class="gt_row gt_right">NA</td>
+<td headers="adj.r.squared" class="gt_row gt_right">NA</td>
+<td headers="sigma" class="gt_row gt_right">NA</td>
+<td headers="statistic" class="gt_row gt_right">NA</td>
+<td headers="p.value" class="gt_row gt_right">NA</td></tr>
     <tr><td headers="model_form" class="gt_row gt_left">flipper_length_mm ~ bill_length_mm + species</td>
 <td headers="r.squared" class="gt_row gt_right">0.83</td>
 <td headers="adj.r.squared" class="gt_row gt_right">0.83</td>
@@ -1948,9 +1617,11 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-</section>
-<section id="machine-learning" class="slide level2">
-<h2>Machine learning</h2>
+</section></section>
+<section>
+<section id="machine-learning" class="title-slide slide level1 center">
+<h1>Machine learning</h1>
+
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
@@ -1959,7 +1630,9 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <li class="fragment">including efficient data preparation and cleaning</li>
 <li class="fragment">excellent graphics</li>
 </ul>
-<p><span style="font-size: 0.5em,  .absolute bottom=0">Palmer penguins code in large part from https://rstudio-conf-2022.github.io/get-started-quarto/ for</span></p>
+<div class="absolute" style="font-size: 1rem;bottom: 0px; ">
+<p>Palmer penguins code in large part from https://rstudio-conf-2022.github.io/get-started-quarto/</p>
+</div>
 </section>
 <section id="add" class="slide level2">
 <h2>Add?</h2>
@@ -1994,13 +1667,13 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': true,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -2185,15 +1858,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -2204,6 +1874,13 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
               window.jQuery(currentSlide).trigger("shown");
             }
           }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
         }
 
         // hookup for slidy
@@ -2255,24 +1932,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -2303,49 +1963,31 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
         const ref = noterefs[i];
         tippyHover(ref, function() {
           // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          let href = ref.getAttribute('data-footnote-href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>
